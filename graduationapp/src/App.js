@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Cards from './Components/Cards/Cards';
+import NameForm from './Components/Forms/NameForm';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Cards />
+      <NameForm />
       
      
       </header>
