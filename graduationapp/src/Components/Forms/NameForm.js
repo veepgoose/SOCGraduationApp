@@ -1,6 +1,7 @@
 import React from 'react';
 import './Forms.css';
 import Cards from '../Cards/Cards';
+import NextButton from '../Buttons/NextButton';
 
 function NameForm(props) {
   return (
@@ -28,8 +29,9 @@ function NameForm(props) {
                 type="email"
                 className="Email-Input"
                 id="email"
-                placeholder="Enter email"
+                placeholder="Enter email"   
             />
+            <NextButton/>
          </div>
         </form>
       </Cards>
