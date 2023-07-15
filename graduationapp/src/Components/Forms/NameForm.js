@@ -6,11 +6,13 @@ function NameForm(props) {
   return (
     <div className="Body">
       <Cards
-        title="Name Form"
-        text="Please fill out the form below with your name and email address to register for the graduation ceremony."
+        title="WELCOME TO THE SOC GRADUATION DRINKS APP!"
+        text="Before we begin, we need 2 bits of information from you, your name and email address, so that we can contact everyone with the location for the after graduation party!
+
+"
       >
         <form>
-          <div className="Name-form">
+          <div className="Name-Form">
             <label className="Name">Name</label>
             <input
               type="text"
