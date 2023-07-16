@@ -2,6 +2,7 @@ import React from "react";
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
+import StayRadioButtons from "../Radios/StayRadioButtons";
 
 function MondayStayForm(props) {
   return (
@@ -11,25 +12,8 @@ function MondayStayForm(props) {
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
       >
         <form>
-          <div className="Name-Form">
-            <label className="Name">Name</label>
-            <input
-              type="text"
-              className="Name-Input"
-              id="name"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div className="Email-Form">
-            <label className="Email">Email address</label>
-            <input
-              type="email"
-              className="Email-Input"
-              id="email"
-              placeholder="Enter email"
-            />
-            <NextButton />
-          </div>
+          <StayRadioButtons stayingLeabel="Are you staying in Reading on Monday night?" />
+          <NextButton />
         </form>
       </Cards>
     </div>
