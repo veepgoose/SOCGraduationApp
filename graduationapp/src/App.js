@@ -15,7 +15,7 @@ function App()
   // Is for checking code works!
   // Is not needed for functionality
     useEffect(() => {
-      console.log(response[0]);
+      console.log(response);
     }, [response]);
 
   // This function will be passed to the form components
