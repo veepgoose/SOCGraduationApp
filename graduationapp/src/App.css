@@ -21,8 +21,21 @@
 .App-logo {
   height: 170px;
   padding: 20px;
-  
+  animation: socLogo infinite 20s linear;
+transform: rotate(90deg);
 }
 
+
+
+@keyframes socLogo {
+0% {
+  /* Initial state */
+  transform: rotate(360deg);
+}
+100% {
+  /* Final state */
+  transform: rotate(0deg);
+}
+}
 
 
