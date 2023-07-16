@@ -8,10 +8,10 @@ function NextButton({ onNext }) {
       sx={{
         backgroundColor: "#81BC06",
         borderRadius: "1rem",
-        width: "9em",
-        height: "3.5em",
-        fontSize: "0.9em",
-        mt: "2.5em",
+        width: "140px",
+        height: "60px",
+        fontSize: "16px",
+        mt: "0.8em",
 
         "&:hover": { backgroundColor: "#81BC06", filter: "brightness(110%)" },
       }}
