@@ -6,9 +6,11 @@ import DrinkPreferenceRadioButtons from './Components/Radios/DrinkPreferenceRadi
 function App() {
   return (
     <div className="App">
+    <div className="background-image">
       <header className="App-header">
       <NameForm />
       </header>
+    </div>
     </div>
   );
 }

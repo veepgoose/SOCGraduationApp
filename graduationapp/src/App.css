@@ -2,10 +2,13 @@
   text-align: center;
 }
 
+.background-image {
+  background-image: url('./windows.jpg');
+  height: 800px;
+}
 
 
-
-.App-header {
+/* .App-header {
   background-color: #31A4DD;
   min-height: 100vh;
   display: flex;
@@ -14,8 +17,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #918F8B;
-}
-
+} */
 
 
 
