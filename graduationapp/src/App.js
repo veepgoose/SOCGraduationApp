@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MondayStayForm from "./Components/Forms/MondayStayForm";
 import logo from './logo.svg';
 import './App.css';
@@ -8,10 +8,29 @@ import NameForm from './Components/Forms/NameForm';
 
 function App() {
   const [currentForm, setCurrentForm] = useState(1);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   const handleNextForm = () => {
     setCurrentForm(currentForm + 1);
   };
+
+  useEffect(() => {
+    const audioElement = new Audio(SchoolOfShanties);
+    audioElement.loop = true;
+
+  const playMusic = () => { 
+    audioElement.play();
+    setIsMusicPlaying(true);
+  };
+
+  document.addEventListener("click", playMusic);
+
+  return () => {  
+    document.removeEventListener("click", playMusic);
+    audioElement.pause();
+    setIsMusicPlaying(false);
+  };
+}, []);
 
   const renderForm = () =>
   {
@@ -33,8 +52,7 @@ function App() {
       <header className="App-header">
       <img src={soclogo} className="App-logo" alt="logo" />
       <header className="App-header">{renderForm()}</header>
-      <audio src={SchoolOfShanties} autoPlay loop/>
-      </header>
+     </header>
     </div>
     </div>
   );
