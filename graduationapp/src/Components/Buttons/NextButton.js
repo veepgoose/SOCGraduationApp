@@ -12,6 +12,7 @@ function NextButton({ onNext }) {
         height: "3.5em",
         fontSize: "0.9em",
         mt: "2.5em",
+
         "&:hover": { backgroundColor: "#81BC06", filter: "brightness(110%)" },
       }}
       onClick={onNext} // Invoke the `onNext` function when the button is clicked

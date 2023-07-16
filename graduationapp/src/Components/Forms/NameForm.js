@@ -11,30 +11,19 @@ function NameForm(props) {
 
   return (
     <div className="Body">
-      <Cards
-        title="WELCOME TO THE SOC GRADUATION DRINKS APP!"
-        text="Before we begin, we need 2 bits of information from you, your name and email address, so that we can contact everyone with the location for the after graduation party!"
-      >
+      <Cards>
+        <h2 className="Form-Title">WELCOME TO THE SOC GRADUATION DRINKS APP!</h2>
+        <p className="Form-Text">
+          We’re all excited for our graduation day at Microsoft next week, but the all-important question: What are we all doing after?! The day is scheduled to finish at 5 pm, and we’d like to keep the party going! So, if you’re looking to carry on the celebrations, use this App to help us plan the festivities. There is also an option to join an in-person Hackathon on Monday for those who will be in the area.
+        </p>
+
         <form>
           <div className="Name-Form">
-            <label className="Name">Name</label>
-            <input
-              type="text"
-              className="Name-Input"
-              id="name"
-              placeholder="Enter your name"
-            />
+            <input type="text" className="Name-Input" id="name" placeholder="Name" />
           </div>
           <div className="Email-Form">
-            <label className="Email">Email address</label>
-            <input
-              type="email"
-              className="Email-Input"
-              id="email"
-              placeholder="Enter email"
-            />
+            <input type="email" className="Email-Input" id="email" placeholder="Email" />
             <NextButton onNext={handleNext} />{" "}
-            {/* Pass the handleNext function to NextButton */}
           </div>
         </form>
       </Cards>

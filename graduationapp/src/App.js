@@ -1,7 +1,9 @@
-import "./App.css";
 import React, { useState } from "react";
-import NameForm from "./Components/Forms/NameForm";
 import MondayStayForm from "./Components/Forms/MondayStayForm";
+import logo from './logo.svg';
+import './App.css';
+import soclogo from './socdows logo.png';
+import NameForm from './Components/Forms/NameForm';
 
 function App() {
   const [currentForm, setCurrentForm] = useState(1);
@@ -26,7 +28,12 @@ function App() {
 
   return (
     <div className="App">
+    <div className="background-image">
+      <header className="App-header">
+      <img src={soclogo} className="App-logo" alt="logo" />
       <header className="App-header">{renderForm()}</header>
+      </header>
+    </div>
     </div>
   );
 }
