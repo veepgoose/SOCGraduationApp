@@ -5,13 +5,25 @@ import './App.css';
 import soclogo from './socdows logo.png';
 import SchoolOfShanties from './School of Shanties master.wav';
 import NameForm from './Components/Forms/NameForm';
+import HackathonForm from './Components/Forms/HackathonForm';
 
+
+const formSequence = [
+  NameForm,
+  MondayStayForm,
+  HackathonForm,
+  // TuesdayStayForm,
+  // CelebrationForm,
+  // DrinkPreferenceForm,
+  // ThankYouMessage,
+];
+  
 function App() {
-  const [currentForm, setCurrentForm] = useState(1);
+  const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   const handleNextForm = () => {
-    setCurrentForm(currentForm + 1);
+    setCurrentFormIndex(currentFormIndex + 1);
   };
 
   useEffect(() => {
@@ -32,26 +44,16 @@ function App() {
   };
 }, []);
 
-  const renderForm = () =>
-  {
-    console.log('next button clicked')
-
-    switch (currentForm) {
-      case 1:
-        return <NameForm onNext={handleNextForm} />;
-      case 2:
-        return <MondayStayForm onNext={handleNextForm} />;
-      default:
-        return null;
-    }
-  };
-
+  const CurrentForm = formSequence[currentFormIndex];
+ 
   return (
     <div className="App">
     <div className="background-image">
       <header className="App-header">
       <img src={soclogo} className="App-logo" alt="logo" />
-      <header className="App-header">{renderForm()}</header>
+      <header className="App-header">
+      <CurrentForm onNext={handleNextForm} />
+      </header>
      </header>
     </div>
     </div>
