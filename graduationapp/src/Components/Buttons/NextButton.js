@@ -12,7 +12,6 @@ function NextButton() {
         width: "8em",
         height: "2.5em",
         fontSize: "0.7em",
-        //Hover Styling
         "&:hover": { backgroundColor: "#81BC06", filter: "brightness(110%)" },
       }}
     >

@@ -5,13 +5,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
     font-size: 20px;
     
   
     
 }
+
 
 .Body {
     display: flex;
@@ -21,8 +21,13 @@
     margin-top: 20px;
     margin-bottom: 20px;
     color: #F7F7F5;
-    font-size: 20px;
+    font-size: 17px;
+    text-align: center;
 
+}
+
+.Form-Title {
+  font-size: 22px;
 }
 
 .Name {
@@ -52,13 +57,14 @@
 
 .Name-Form .Name-Input,
 .Email-Form .Email-Input {
-  width: 50%;
+  height: 10px;
+  width: 40%;
   margin-bottom: 10px;
   border-radius: 20px;
   border: 1px solid #F7F7F5;
   background-color: #F7F7F5;
   padding: 10px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Roboto', sans-serif;
   color: #05A6F0;
 }
