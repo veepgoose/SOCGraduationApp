@@ -20,7 +20,7 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #534D56;
+    color: #F7F7F5;
     font-size: 20px;
 
 }
@@ -32,7 +32,7 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #534D56;
+    color: #F7F7F5;
     
 }
 
@@ -45,7 +45,7 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #534D56;
+    color: #F7F7F5;
     
 }
 
@@ -55,15 +55,15 @@
   width: 50%;
   margin-bottom: 10px;
   border-radius: 20px;
-  border: 1px solid #FFBA08;
-  background-color: #FFBA08;
+  border: 1px solid #F7F7F5;
+  background-color: #F7F7F5;
   padding: 10px;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
-  color: #F7F7F5;
+  color: #05A6F0;
 }
 
 .Name-Form .Name-Input::placeholder,
 .Email-Form .Email-Input::placeholder {
-  color: #F7F7F5; /* Set the text color for the placeholders */
+  color: #05A6F0; /* Set the text color for the placeholders */
 }
