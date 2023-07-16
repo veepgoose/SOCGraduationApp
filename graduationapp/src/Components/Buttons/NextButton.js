@@ -9,9 +9,11 @@ function NextButton() {
       sx={{
         backgroundColor: "#81BC06",
         borderRadius: "1rem",
-        width: "8em",
-        height: "2.5em",
-        fontSize: "0.7em",
+        width: "9em",
+        height: "3.5em",
+        fontSize: "0.9em",
+        // mt = margin-top
+        mt: "2.5em",
         //Hover Styling
         "&:hover": { backgroundColor: "#81BC06", filter: "brightness(110%)" },
       }}
