@@ -5,6 +5,10 @@ import NextButton from "../Buttons/NextButton";
 import StayRadioButtons from "../Radios/StayRadioButtons";
 
 function MondayStayForm(props) {
+  const handleNext = () => {
+    props.onNext();
+  };
+
   return (
     <div className="Body">
       <Cards
@@ -13,7 +17,7 @@ function MondayStayForm(props) {
       >
         <form>
           <StayRadioButtons stayingLeabel="Are you staying in Reading on Monday night?" />
-          <NextButton />
+          <NextButton  onNext={handleNext} />{" "}
         </form>
       </Cards>
     </div>
