@@ -4,20 +4,25 @@
 
 .background-image {
   background-image: url('./windows.jpg');
-  height: 800px;
+  height: 1000px;
 }
 
 
 /* .App-header {
-  background-color: #31A4DD;
-  min-height: 100vh;
+  
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #918F8B;
+ 
 } */
+
+.App-logo {
+  height: 170px;
+  padding: 20px;
+  
+}
 
 
 
