@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
-import { useState } from "react";
+// Remove the import of the backend/db.js as it is not required here.
 
 function NameForm(props) {
   const [name, setName] = useState("");
@@ -11,6 +11,17 @@ function NameForm(props) {
   const handleNext = () => {
     const data = { name, email };
     props.onNext(data);
+  };
+
+  // Async function to fetch attendees data from Supabase.
+  const fetchAttendeesData = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/get-attendees'); // Replace with your backend URL for fetching attendees data
+      const data = await response.json();
+      console.log(data); // Process the fetched data if needed.
+    } catch (error) {
+      console.error('Error fetching attendees data:', error);
+    }
   };
 
   return (
@@ -55,5 +66,8 @@ function NameForm(props) {
     </div>
   );
 }
+
+
+
 
 export default NameForm;

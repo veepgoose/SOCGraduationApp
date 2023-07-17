@@ -64,7 +64,12 @@ function App() {
   // }, []);
 
   const CurrentForm = formSequence[currentFormIndex];
+  
+  if (!CurrentForm) {
+    return <div>No form found</div>;
+  }
 
+  
   return (
     <div className="App">
       <div className="background-image">
@@ -78,6 +83,9 @@ function App() {
     </div>
   );
 }
+
+
+
 
 export default App;
 
