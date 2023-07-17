@@ -1,3 +1,35 @@
+
+  // State to keep track of the responses
+//   const [response, setResponse] = useState([]);
+
+  // This will log the response to the console every time it changes
+  // Is for checking code works!
+  // Is not needed for functionality
+//     useEffect(() => {
+//       console.log(response);
+//     }, [response]);
+
+  // This function will be passed to the form components
+//   const handleNextForm = (data) =>
+//   {
+//     // This will update the state variables
+//     setCurrentForm(currentForm + 1);
+//     // This will add the response to the array
+//     setResponse([...response, data]);
+//     // This will log the response to the console
+//     console.log("next button clicked");
+//   };
+
+//   const renderForm = () => {
+//     switch (currentForm) {
+//       case 1:
+//         return <NameForm onNext={handleNextForm} />;
+//       case 2:
+//         return <MondayStayForm onNext={handleNextForm} />;
+//       default:
+//         return null;
+//     }
+// =======
 import React, { useEffect, useState } from "react";
 import MondayStayForm from "./Components/Forms/MondayStayForm";
 import logo from './logo.svg';
@@ -36,6 +68,7 @@ function App() {
   const playMusic = () => { 
     audioElement.play();
     setIsMusicPlaying(true);
+// >>>>>>> main
   };
 
   document.addEventListener("click", playMusic);
@@ -51,6 +84,8 @@ function App() {
  
   return (
     <div className="App">
+
+// =======
     <div className="background-image">
       <header className="App-header">
       <img src={soclogo} className="App-logo" alt="logo" />
@@ -59,6 +94,7 @@ function App() {
       </header>
      </header>
     </div>
+// >>>>>>> main
     </div>
   );
 }

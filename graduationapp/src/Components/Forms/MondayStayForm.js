@@ -3,11 +3,22 @@ import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
 import StayRadioButtons from "../Radios/StayRadioButtons";
+import { useState } from "react";
+
 
 function MondayStayForm(props) {
-  const handleNext = () => {
-    props.onNext();
-  };
+
+  const [staying, setStaying] = useState(true);
+
+const handleNext = () => {
+  props.onNext(staying); // Use the staying state variable
+};
+
+// =======
+//   const handleNext = () => {
+//     props.onNext();
+//   };
+// >>>>>>> main
 
   return (
     <div className="Body">
@@ -17,7 +28,11 @@ function MondayStayForm(props) {
       >
         <form>
           <StayRadioButtons stayingLeabel="Are you staying in Reading on Monday night?" />
-          <NextButton  onNext={handleNext} />{" "}
+// <<<<<<< responses-array-logic
+//           <NextButton staying={staying} onNext={handleNext} />
+// =======
+//           <NextButton  onNext={handleNext} />{" "}
+// >>>>>>> main
         </form>
       </Cards>
     </div>
