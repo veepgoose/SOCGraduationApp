@@ -6,15 +6,18 @@ import soclogo from './socdows logo.png';
 import SchoolOfShanties from './School of Shanties master.wav';
 import NameForm from './Components/Forms/NameForm';
 import HackathonForm from './Components/Forms/HackathonForm';
+import TuesdayStayForm from './Components/Forms/TuesdayStayForm';
+import CelebrationForm from './Components/Forms/CelebrationForm';
+import DrinkPreferenceForm from "./Components/Forms/DrinkPreferenceForm";
 
 
 const formSequence = [
   NameForm,
   MondayStayForm,
   HackathonForm,
-  // TuesdayStayForm,
-  // CelebrationForm,
-  // DrinkPreferenceForm,
+  TuesdayStayForm,
+  CelebrationForm,
+  DrinkPreferenceForm,
   // ThankYouMessage,
 ];
   
