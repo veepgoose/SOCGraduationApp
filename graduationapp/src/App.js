@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
 import MondayStayForm from "./Components/Forms/MondayStayForm";
 import './App.css';
 import soclogo from './socdows logo.png';
@@ -19,51 +20,51 @@ const formSequence = [
   DrinkPreferenceForm,
   ThankYouMessage,
 ];
-  
+
+const supabaseUrl = 'https://uoznfrtkyowzlhglmoac.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvem5mcnRreW93emxoZ2xtb2FjIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODkzNDk4MzcsImV4cCI6MjAwNDkyNTgzN30.wFQPxadi9ieAB8zBhwGwRmrOQD6FoUnVX3I9v6M9BQI';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [response, setResponse] = useState([]);
-  
-  // RESPONSE CONTAINST HE ARRAY THAT HOLDS THE RESPOSNE ANSERWERS FROM THE USER
-  //
-  // 0: {name: 'Sam B', email: 'sam@gmail.com'}
-  // 1: {monday: false}
-  // 2: {hackathon: false}
-  // 3: {tuesday: true}
-  // 4: {afterparty: true}
-  // 5: {beer: false, wine: true, spirits: true, beast: false, none: false}
 
+  const handleNextForm = async (data) => {
+    try {
+      if (currentFormIndex === 0) {
+        const { data: attendeeResponse, error: attendeeError } = await supabase
+          .from('attendees')
+          .insert([{ name: data.name, email: data.email }]);
+            console.log(data, "supabase");
+        if (attendeeError) {
+          console.error('Error submitting attendee:', attendeeError);
+        } else {
+          console.log('Attendee submitted successfully:', attendeeResponse);
+        }
+      } else if (currentFormIndex === 5) {
+        const { data: drinkPreferenceResponse, error: drinkPreferenceError } = await supabase
+          .from('drink_preferences')
+          .insert([{ no_alcohol: data.none, beer: data.beer, wine: data.wine, spirits: data.spirits, beast_mode: data.beast }]);
 
-      useEffect(() => {
-        console.log(response);
-      }, [response]);
+        if (drinkPreferenceError) {
+          console.error('Error submitting drink preferences:', drinkPreferenceError);
+        } else {
+          console.log('Drink preferences submitted successfully:', drinkPreferenceResponse);
+        }
+      }
 
-  const handleNextForm = (data) => {
-    setCurrentFormIndex(currentFormIndex + 1);
-    setResponse([...response, data]);
+      setCurrentFormIndex(currentFormIndex + 1);
+      setResponse([...response, data]);
+    } catch (error) {
+      console.error('Error submitting response:', error);
+    }
   };
 
-  //   useEffect(() => {
-  //     const audioElement = new Audio(SchoolOfShanties);
-  //     audioElement.loop = true;
-
-  //   const playMusic = () => {
-  //     audioElement.play();
-  //     setIsMusicPlaying(true);
-
-  //   };
-
-  //   document.addEventListener("click", playMusic);
-
-  //   return () => {
-  //     document.removeEventListener("click", playMusic);
-  //     audioElement.pause();
-  //     setIsMusicPlaying(false);
-  //   };
-  // }, []);
-
   const CurrentForm = formSequence[currentFormIndex];
+
+  if (!CurrentForm) {
+    return <div>No form found</div>;
+  }
 
   return (
     <div className="App">
@@ -80,36 +81,3 @@ function App() {
 }
 
 export default App;
-
-
-  // State to keep track of the responses
-//   const [response, setResponse] = useState([]);
-
-  // This will log the response to the console every time it changes
-  // Is for checking code works!
-  // Is not needed for functionality
-//     useEffect(() => {
-//       console.log(response);
-//     }, [response]);
-
-  // This function will be passed to the form components
-//   const handleNextForm = (data) =>
-//   {
-//     // This will update the state variables
-//     setCurrentForm(currentForm + 1);
-//     // This will add the response to the array
-//     setResponse([...response, data]);
-//     // This will log the response to the console
-//     console.log("next button clicked");
-//   };
-
-//   const renderForm = () => {
-//     switch (currentForm) {
-//       case 1:
-//         return <NameForm onNext={handleNextForm} />;
-//       case 2:
-//         return <MondayStayForm onNext={handleNextForm} />;
-//       default:
-//         return null;
-//     }
-// =======
