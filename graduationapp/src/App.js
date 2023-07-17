@@ -3,6 +3,7 @@ import MondayStayForm from "./Components/Forms/MondayStayForm";
 import "./App.css";
 import soclogo from "./socdows logo.png";
 import NameForm from "./Components/Forms/NameForm";
+import HackathonForm from "./Components/Forms/HackathonForm";
 
 function App()
 {
