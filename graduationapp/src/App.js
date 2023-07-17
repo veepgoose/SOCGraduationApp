@@ -35,7 +35,7 @@ function App() {
         const { data: attendeeResponse, error: attendeeError } = await supabase
           .from('attendees')
           .insert([{ name: data.name, email: data.email }]);
-
+            console.log(data, "supabase");
         if (attendeeError) {
           console.error('Error submitting attendee:', attendeeError);
         } else {
