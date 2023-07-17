@@ -13,7 +13,7 @@ function HackathonForm(props) {
   const [stayingHackathon, setStayingHackathon] = useState(true);
 
   const handleChange = (e) => {
-    setStayingHackathon(e.target.value);
+    setStayingHackathon(e.target.value === "true"); // Convert string value to boolean
   };
 
   const handleNext = () => {

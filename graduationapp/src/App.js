@@ -24,6 +24,16 @@ function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [response, setResponse] = useState([]);
+  
+  // RESPONSE CONTAINST HE ARRAY THAT HOLDS THE RESPOSNE ANSERWERS FROM THE USER
+  //
+  // 0: {name: 'Sam B', email: 'sam@gmail.com'}
+  // 1: {monday: false}
+  // 2: {hackathon: false}
+  // 3: {tuesday: true}
+  // 4: {afterparty: true}
+  // 5: {beer: false, wine: true, spirits: true, beast: false, none: false}
+
 
       useEffect(() => {
         console.log(response);

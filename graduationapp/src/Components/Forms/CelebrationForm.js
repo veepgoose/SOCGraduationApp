@@ -13,7 +13,7 @@ function CelebrationForm(props) {
   const [stayingAfterparty, setSayingAfterparty] = useState(true);
 
   const handleChange = (e) => {
-    setSayingAfterparty(e.target.value);
+    setSayingAfterpartyg(e.target.value === "true"); // Convert string value to boolean
   };
 
   const handleNext = () => {
@@ -42,6 +42,7 @@ function CelebrationForm(props) {
               aria-labelledby="celebration-radio-buttons-group-label"
               defaultValue="true"
               name="celebration-radio-buttons-group"
+              onChange={handleChange} // Use the handleChange function
             >
               {/* Yes and No Radio Buttons wrapped in RadioGroup */}
               <FormControlLabel value="true" control={<Radio />} label="Yes" />

@@ -13,7 +13,7 @@ function MondayStayForm(props) {
   const [staying, setStaying] = useState(true);
 
   const handleChange = (e) => {
-    setStaying(e.target.value);
+    setStaying(e.target.value === "true"); // Convert string value to boolean
   };
 
   const handleNext = () => {
