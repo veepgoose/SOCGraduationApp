@@ -73,3 +73,11 @@
 .Email-Form .Email-Input::placeholder {
   color: #05A6F0; /* Set the text color for the placeholders */
 }
+
+.gif {
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
