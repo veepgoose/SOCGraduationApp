@@ -9,7 +9,7 @@ import HackathonForm from './Components/Forms/HackathonForm';
 import TuesdayStayForm from './Components/Forms/TuesdayStayForm';
 import CelebrationForm from './Components/Forms/CelebrationForm';
 import DrinkPreferenceForm from "./Components/Forms/DrinkPreferenceForm";
-
+import ThankYouMessage from "./Components/Forms/ThankYouMessage";
 
 const formSequence = [
   NameForm,
@@ -18,7 +18,7 @@ const formSequence = [
   TuesdayStayForm,
   CelebrationForm,
   DrinkPreferenceForm,
-  // ThankYouMessage,
+  ThankYouMessage,
 ];
   
 function App() {
