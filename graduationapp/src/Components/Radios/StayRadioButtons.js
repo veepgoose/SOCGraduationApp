@@ -6,10 +6,11 @@ import FormLabel from "@mui/material/FormLabel";
 import Box from "@mui/material/Box";
 
 function StayRadioButtons(props) {
-  const [staying, setStaying] = useState(true); // Define the staying state
+  const { staying, onChange } = props;
 
   const handleChange = (e) => {
-    setStaying(e.target.value === "true"); // Update the staying state
+    const value = e.target.value === "true";
+    onChange(value);
   };
 
   return (
@@ -22,20 +23,17 @@ function StayRadioButtons(props) {
         gap: "1em",
       }}
     >
-      {/* Header */}
       <FormLabel id="stay-radio-buttons-group-label">
-        {props.stayingLeabel}
+        {props.stayingLabel}
       </FormLabel>
-      {/* Radio Buttons Group Options*/}
       <RadioGroup
         aria-labelledby="stay-radio-buttons-group-label"
-        value={staying.toString()} // Use the staying state
+        value={staying.toString()}
         name="stay-radio-buttons-group"
-        onChange={handleChange} // Use the handleChange function
+        onChange={handleChange}
       >
-        {/* Yes and No Radio Buttons wrapped in RadioGroup */}
-        <FormControlLabel value="true" control={<Radio />} label="Yes" />
-        <FormControlLabel value="false" control={<Radio />} label="No" />
+        <FormControlLabel value={true} control={<Radio />} label="Yes" />
+        <FormControlLabel value={false} control={<Radio />} label="No" />
       </RadioGroup>
     </Box>
   );
