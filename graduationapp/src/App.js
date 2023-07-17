@@ -23,42 +23,48 @@ const formSequence = [
 function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [response, setResponse] = useState([]);
 
-  const handleNextForm = () => {
+      useEffect(() => {
+        console.log(response);
+      }, [response]);
+
+  const handleNextForm = (data) => {
     setCurrentFormIndex(currentFormIndex + 1);
+    setResponse([...response, data]);
   };
 
-//   useEffect(() => {
-//     const audioElement = new Audio(SchoolOfShanties);
-//     audioElement.loop = true;
+  //   useEffect(() => {
+  //     const audioElement = new Audio(SchoolOfShanties);
+  //     audioElement.loop = true;
 
-//   const playMusic = () => { 
-//     audioElement.play();
-//     setIsMusicPlaying(true);
+  //   const playMusic = () => {
+  //     audioElement.play();
+  //     setIsMusicPlaying(true);
 
-//   };
+  //   };
 
-//   document.addEventListener("click", playMusic);
+  //   document.addEventListener("click", playMusic);
 
-//   return () => {  
-//     document.removeEventListener("click", playMusic);
-//     audioElement.pause();
-//     setIsMusicPlaying(false);
-//   };
-// }, []);
+  //   return () => {
+  //     document.removeEventListener("click", playMusic);
+  //     audioElement.pause();
+  //     setIsMusicPlaying(false);
+  //   };
+  // }, []);
 
   const CurrentForm = formSequence[currentFormIndex];
- 
+
   return (
     <div className="App">
-    <div className="background-image">
-      <header className="App-header">
-      <img src={soclogo} className="App-logo" alt="logo" />
-      <header className="App-header">
-      <CurrentForm onNext={handleNextForm} />
-      </header>
-     </header>
-    </div>
+      <div className="background-image">
+        <header className="App-header">
+          <img src={soclogo} className="App-logo" alt="logo" />
+          <header className="App-header">
+            <CurrentForm onNext={handleNextForm} />
+          </header>
+        </header>
+      </div>
     </div>
   );
 }
