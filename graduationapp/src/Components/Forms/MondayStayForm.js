@@ -7,12 +7,18 @@ import { useState } from "react";
 
 
 function MondayStayForm(props) {
+
   const [staying, setStaying] = useState(true);
 
 const handleNext = () => {
   props.onNext(staying); // Use the staying state variable
 };
 
+// =======
+//   const handleNext = () => {
+//     props.onNext();
+//   };
+// >>>>>>> main
 
   return (
     <div className="Body">
@@ -22,7 +28,11 @@ const handleNext = () => {
       >
         <form>
           <StayRadioButtons stayingLeabel="Are you staying in Reading on Monday night?" />
-          <NextButton staying={staying} onNext={handleNext} />
+// <<<<<<< responses-array-logic
+//           <NextButton staying={staying} onNext={handleNext} />
+// =======
+//           <NextButton  onNext={handleNext} />{" "}
+// >>>>>>> main
         </form>
       </Cards>
     </div>
