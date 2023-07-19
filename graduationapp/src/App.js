@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import React, { useState } from "react";
+import axios from "axios";
 import MondayStayForm from "./Components/Forms/MondayStayForm";
 import './App.css';
 import soclogo from './socdows logo.png';
@@ -21,9 +21,7 @@ const formSequence = [
   ThankYouMessage,
 ];
 
-const supabaseUrl = 'https://uoznfrtkyowzlhglmoac.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVvem5mcnRreW93emxoZ2xtb2FjIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODkzNDk4MzcsImV4cCI6MjAwNDkyNTgzN30.wFQPxadi9ieAB8zBhwGwRmrOQD6FoUnVX3I9v6M9BQI';
-const supabase = createClient(supabaseUrl, supabaseKey);
+const apiUrl = "postgres://addwrmhz:Qu6WFe2W25ngBbhi8FqDbhUMgQDt91x4@tyke.db.elephantsql.com/addwrmhz"; // Replace with your deployed backend URL
 
 function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
@@ -32,25 +30,16 @@ function App() {
   const handleNextForm = async (data) => {
     try {
       if (currentFormIndex === 0) {
-        const { data: attendeeResponse, error: attendeeError } = await supabase
-          .from('attendees')
-          .insert([{ name: data.name, email: data.email }]);
-            console.log(data, "supabase");
-        if (attendeeError) {
-          console.error('Error submitting attendee:', attendeeError);
-        } else {
-          console.log('Attendee submitted successfully:', attendeeResponse);
-        }
+        await axios.post(`${apiUrl}/save`, { name: data.name, email: data.email });
+        console.log(data, "backend");
       } else if (currentFormIndex === 5) {
-        const { data: drinkPreferenceResponse, error: drinkPreferenceError } = await supabase
-          .from('drink_preferences')
-          .insert([{ no_alcohol: data.none, beer: data.beer, wine: data.wine, spirits: data.spirits, beast_mode: data.beast }]);
-
-        if (drinkPreferenceError) {
-          console.error('Error submitting drink preferences:', drinkPreferenceError);
-        } else {
-          console.log('Drink preferences submitted successfully:', drinkPreferenceResponse);
-        }
+        await axios.post(`${apiUrl}/save`, {
+          none: data.none,
+          beer: data.beer,
+          wine: data.wine,
+          spirits: data.spirits,
+          beast: data.beast,
+        });
       }
 
       setCurrentFormIndex(currentFormIndex + 1);
