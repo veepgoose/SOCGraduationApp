@@ -21,7 +21,7 @@ const formSequence = [
   ThankYouMessage,
 ];
 
-const apiUrl = "postgres://addwrmhz:Qu6WFe2W25ngBbhi8FqDbhUMgQDt91x4@tyke.db.elephantsql.com/addwrmhz"; // Replace with your deployed backend URL
+const apiUrl = "https://soc-grad-app-7b526ca0f6bb.herokuapp.com"; // Replace with your deployed backend URL
 
 function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
