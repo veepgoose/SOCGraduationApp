@@ -21,7 +21,9 @@ const formSequence = [
   ThankYouMessage,
 ];
 
-const apiUrl = "https://soc-grad-app-22cd9e1b6bed.herokuapp.com/"; // Replace with your deployed backend URL
+// const apiUrl = "https://soc-grad-app-22cd9e1b6bed.herokuapp.com"; // Replace with your deployed backend URL
+const apiUrl = "/save"; // Replace with your deployed backend URL
+
 
 function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
