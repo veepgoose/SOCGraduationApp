@@ -62,7 +62,11 @@ const handleNext = () => {
 
   return (
     <div className="Body">
-      <Cards title="SO, WHAT'S YOUR POISON?" text="Let's get waaaaaaasted!">
+        <Cards>
+      <h2 className="Form-Title">GIT TIPSY++</h2>
+        <p className="Form-Text">
+        Well, it's Tuesday evening, it's API Hour, what's your Poison??
+        </p>
         <form>
           <Box
             sx={{
@@ -74,9 +78,7 @@ const handleNext = () => {
             }}
           >
             {/* Header */}
-            <FormLabel id="drinks-radio-buttons-group-label">
-              Pick your poison
-            </FormLabel>
+           
             {/* Checkbox Group Options */}
             <FormGroup>
               <FormControlLabel

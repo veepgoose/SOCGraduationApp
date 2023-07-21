@@ -23,10 +23,11 @@ function HackathonForm(props) {
 
   return (
     <div className="Body">
-      <Cards
-        title="AN IRL HACKATHON YOU SAY?!?"
-        text="We're planning on having an in-person hackathon on Monday 24th July, which will take place at an Air BnB with fellow Bootcampers. Spaces will be limited, so if you're interested in joining your fellow bootcampers for a fun evening of coding together with drinks and pizza, now's your time to express that interest!"
-      >
+      <Cards>
+       <h2 className="Form-Title">GIT TIPSY++</h2>
+        <p className="Form-Text">
+        For those of you staying over on Monday evening, we will be hosting a hackathon in an Air BnB in central Reading. Expect coding, socialising and PIZZA! 🍕🍕🍕 Spaces are very limited, so please let us know if you would like to attend.
+        </p>
         <form>
           <Box
             sx={{
@@ -38,9 +39,7 @@ function HackathonForm(props) {
             }}
           >
             {/* Header */}
-            <FormLabel id="stay-radio-buttons-group-label">
-              Hackathon?! Count.Me.IN!
-            </FormLabel>
+          
             {/* Radio Buttons Group Options*/}
             <RadioGroup
               aria-labelledby="stay-radio-buttons-group-label"
@@ -49,8 +48,8 @@ function HackathonForm(props) {
               onChange={handleChange} // Use the handleChange function
             >
               {/* Yes and No Radio Buttons wrapped in RadioGroup */}
-              <FormControlLabel value="true" control={<Radio />} label="Yes" />
-              <FormControlLabel value="false" control={<Radio />} label="No" />
+              <FormControlLabel value="true" control={<Radio />} label="Gimme 🍕🍕🍕  " />
+              <FormControlLabel value="false" control={<Radio />} label="I've coding enough for now, thanks tho " />
             </RadioGroup>
           </Box>
           <NextButton onNext={handleNext} />

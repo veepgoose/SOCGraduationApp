@@ -23,7 +23,11 @@ function CelebrationForm(props) {
 
   return (
     <div className="Body">
-      <Cards title="WANNA PARTY?!?" text="Let's get waaaaaaasted!">
+      <Cards>
+      <h2 className="Form-Title">GIT TIPSY || GO HOME</h2>
+        <p className="Form-Text">
+        Yay! A fun day out at Microsoft followed by the all important School Of Code Graduation Ceremony 🎉🎓, but the celebrations don't stop there! We will be heading to a local bar for drinks and nibbles, so please let us know if you would like to join us.
+        </p>
         <form>
           <Box
             sx={{
@@ -35,7 +39,7 @@ function CelebrationForm(props) {
             }}
           >
             <FormLabel id="celebration-radio-buttons-group-label">
-              Graduation afterparty?
+              
             </FormLabel>
             {/* Radio Buttons Group Options*/}
             <RadioGroup
@@ -45,8 +49,8 @@ function CelebrationForm(props) {
               onChange={handleChange} // Use the handleChange function
             >
               {/* Yes and No Radio Buttons wrapped in RadioGroup */}
-              <FormControlLabel value="true" control={<Radio />} label="Yes" />
-              <FormControlLabel value="false" control={<Radio />} label="No" />
+              <FormControlLabel value="true" control={<Radio />} label="Count me IN!!!🥳" />
+              <FormControlLabel value="false" control={<Radio />} label="I wanna go home, Bab! 👋" />
             </RadioGroup>
           </Box>
           <NextButton onNext={handleNext} />
