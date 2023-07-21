@@ -13,6 +13,7 @@
 }
 
 
+
 .Body {
     display: flex;
     flex-direction: column;
@@ -81,3 +82,19 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.GooseSquad {
+
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 300px;
+  width: 350px;
+
+}
+
+
+
+
+
