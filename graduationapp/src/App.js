@@ -24,6 +24,7 @@ function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [response, setResponse] = useState([]);
   const [drinkPreferences, setDrinkPreferences] = useState({});
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   useEffect(() => {
     fecthResponses();
@@ -34,6 +35,23 @@ function App() {
     console.log(response);
   }, [response]);
 
+  useEffect(() => {
+    const audioElement = new Audio(SchoolOfShanties);
+    audioElement.loop = true;
+
+  const playMusic = () => { 
+    audioElement.play();
+    setIsMusicPlaying(true);
+  };
+
+  document.addEventListener("click", playMusic);
+
+  return () => {  
+    document.removeEventListener("click", playMusic);
+    audioElement.pause();
+    setIsMusicPlaying(false);
+  };
+}, []);
   // Making a fecth to the api and console logging to check if the database is connected
 
   async function fecthResponses() {
