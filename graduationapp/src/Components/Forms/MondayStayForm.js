@@ -22,10 +22,11 @@ function MondayStayForm(props) {
 
   return (
     <div className="Body">
-      <Cards
-        title="WELCOME TO THE SOC GRADUATION DRINKS APP!"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-      >
+      <Cards>
+      <h2 className="Form-Title">GIT TIPSY++</h2>
+        <p className="Form-Text">
+        So, it's a 9:30am start at Microsoft on Tuesday, are you staying in Reading on the Monday evening?
+        </p>
         <form>
           <Box
             sx={{
@@ -38,7 +39,7 @@ function MondayStayForm(props) {
           >
             {/* Header */}
             <FormLabel id="stay-radio-buttons-group-label">
-              Will you be staying in London on Monday 23rd July?
+              
             </FormLabel>
             {/* Radio Buttons Group Options*/}
             <RadioGroup
@@ -48,8 +49,8 @@ function MondayStayForm(props) {
               onChange={handleChange} // Use the handleChange function
             >
               {/* Yes and No Radio Buttons wrapped in RadioGroup */}
-              <FormControlLabel value="true" control={<Radio />} label="Yes" />
-              <FormControlLabel value="false" control={<Radio />} label="No" />
+              <FormControlLabel value="true" control={<Radio />} label="Hell Yeah!" />
+              <FormControlLabel value="false" control={<Radio />} label="Early morning train journey for me :(" />
             </RadioGroup>
           </Box>
 

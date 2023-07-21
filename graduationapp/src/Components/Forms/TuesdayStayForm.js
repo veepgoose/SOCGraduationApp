@@ -23,10 +23,11 @@ function TuesdayStayForm(props) {
 
   return (
     <div className="Body">
-      <Cards
-        title="TUESDAY SLEEPOVER?"
-        text="It's a bit of a trek for a lot of people, so will you be amongst the brave souls who are staying in Reading on Tuesday night?"
-      >
+      <Cards>
+      <h2 className="Form-Title">GIT TIPSY++</h2>
+        <p className="Form-Text">
+        Picture the scene: It's 5pm, you're with your fellow SOC Bootcampers, riding the high of a fun day at Microsoft (Rumour has it there's LEGO!😲), will you be staying the night in Reading, or heading home?
+        </p>
         <form>
           <Box
             sx={{
@@ -37,9 +38,7 @@ function TuesdayStayForm(props) {
               gap: "1em",
             }}
           >
-            <FormLabel id="stay-radio-buttons-group-label">
-              Are you staying in Reading on Tuesday night?
-            </FormLabel>
+            
             {/* Radio Buttons Group Options*/}
             <RadioGroup
               aria-labelledby="stay-radio-buttons-group-label"
@@ -48,8 +47,8 @@ function TuesdayStayForm(props) {
               onChange={handleChange} // Use the handleChange function
             >
               {/* Yes and No Radio Buttons wrapped in RadioGroup */}
-              <FormControlLabel value="true" control={<Radio />} label="Yes" />
-              <FormControlLabel value="false" control={<Radio />} label="No" />
+              <FormControlLabel value="true" control={<Radio />} label="I'm staying the night" />
+              <FormControlLabel value="false" control={<Radio />} label="It's home time for me!" />
             </RadioGroup>
           </Box>
           <NextButton onNext={handleNext} />
