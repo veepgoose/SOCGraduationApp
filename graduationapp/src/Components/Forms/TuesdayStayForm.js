@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"; // Import Axios library
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -10,15 +10,22 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 function TuesdayStayForm(props) {
-  const [staying, setStaying] = useState(true);
+  const [stayingTuesday, setStayingTuesday] = useState(true);
+
+  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
 
   const handleChange = (e) => {
-    setStaying(e.target.value === "true"); // Convert string value to boolean
+    setStayingTuesday(e.target.value === "true"); // Convert string value to boolean
   };
 
-  const handleNext = () => {
-    const data = { tuesday: staying };
-    props.onNext(data);
+  const handleNext = async () => {
+    const data = { tuesday: stayingTuesday };
+    try {
+      await axios.post(`${apiUrl}/save/tuesday`, data); // Make the API call to submit data
+      props.onNext(data);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   };
 
   return (
@@ -43,7 +50,7 @@ function TuesdayStayForm(props) {
             {/* Radio Buttons Group Options*/}
             <RadioGroup
               aria-labelledby="stay-radio-buttons-group-label"
-              value={staying} // Use the staying state
+              value={stayingTuesday} // Use the stayingTuesday state
               name="stay-radio-buttons-group"
               onChange={handleChange} // Use the handleChange function
             >
@@ -51,8 +58,8 @@ function TuesdayStayForm(props) {
               <FormControlLabel value="true" control={<Radio />} label="Yes" />
               <FormControlLabel value="false" control={<Radio />} label="No" />
             </RadioGroup>
-            <NextButton onNext={handleNext} />{" "}
           </Box>
+          <NextButton onNext={handleNext} />
         </form>
       </Cards>
     </div>
@@ -60,3 +67,4 @@ function TuesdayStayForm(props) {
 }
 
 export default TuesdayStayForm;
+

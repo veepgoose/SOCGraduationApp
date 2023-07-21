@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"; // Import Axios library
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import FormGroup from "@mui/material/FormGroup";
 import Checkbox from "@mui/material/Checkbox";
@@ -10,27 +10,32 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-function DrinkPreferenceForm(props)
-{
-
-  const handleChange = (e) => {
-    setStaying(e.target.value === "true"); // Convert string value to boolean
-  };
-
+function DrinkPreferenceForm(props) {
   const [checked, setChecked] = useState(false);
   const [beerChecked, setBeerChecked] = useState(false);
   const [wineChecked, setWineChecked] = useState(false);
   const [spiritsChecked, setSpiritsChecked] = useState(false);
   const [beastChecked, setBeastChecked] = useState(false);
 
-  const handleNext = () => {
-    const data = { beer: beerChecked, wine: wineChecked, spirits: spiritsChecked, beast: beastChecked, none: checked};
-    props.onNext(data);
+  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
+
+  const handleNext = async () => {
+    const data = {
+      beer: beerChecked,
+      wine: wineChecked,
+      spirits: spiritsChecked,
+      beast: beastChecked,
+      none: checked,
+    };
+    try {
+      await axios.post(`${apiUrl}/save/drink-preference`, data); // Make the API call to submit data
+      props.onNext(data);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   };
 
-
   const handleCheckboxChange = (event) => {
-
     const { checked } = event.target;
     setChecked(checked);
 
@@ -140,3 +145,4 @@ function DrinkPreferenceForm(props)
 }
 
 export default DrinkPreferenceForm;
+
