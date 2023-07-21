@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios library
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
@@ -8,16 +7,9 @@ function NameForm(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
-
-  const handleNext = async () => {
+  const handleNext = () => {
     const data = { name, email };
-    try {
-      await axios.post(`${apiUrl}/save/name-email`, data); // Make the API call to submit data
-      props.onNext(data);
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    }
+    props.onNext(data);
   };
 
   return (

@@ -10,22 +10,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 function TuesdayStayForm(props) {
-  const [stayingTuesday, setStayingTuesday] = useState(true);
-
-  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
+  const [staying, setStaying] = useState(true);
 
   const handleChange = (e) => {
-    setStayingTuesday(e.target.value === "true"); // Convert string value to boolean
+    setStaying(e.target.value === "true"); // Convert string value to boolean
   };
 
-  const handleNext = async () => {
-    const data = { tuesday: stayingTuesday };
-    try {
-      await axios.post(`${apiUrl}/save/tuesday`, data); // Make the API call to submit data
-      props.onNext(data);
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    }
+  const handleNext = () => {
+    const data = { tuesday: staying };
+    props.onNext(data);
   };
 
   return (
@@ -50,7 +43,7 @@ function TuesdayStayForm(props) {
             {/* Radio Buttons Group Options*/}
             <RadioGroup
               aria-labelledby="stay-radio-buttons-group-label"
-              value={stayingTuesday} // Use the stayingTuesday state
+              value={staying} // Use the stayingTuesday state
               name="stay-radio-buttons-group"
               onChange={handleChange} // Use the handleChange function
             >

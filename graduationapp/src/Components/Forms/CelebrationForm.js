@@ -10,22 +10,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 function CelebrationForm(props) {
-  const [afterparty, setAfterparty] = useState(true);
-
-  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
+  const [stayingAfterparty, setSayingAfterparty] = useState(true);
 
   const handleChange = (e) => {
-    setAfterparty(e.target.value === "true"); // Convert string value to boolean
+    setSayingAfterpartyg(e.target.value === "true"); // Convert string value to boolean
   };
 
-  const handleNext = async () => {
-    const data = { afterparty };
-    try {
-      await axios.post(`${apiUrl}/save/afterparty`, data); // Make the API call to submit data
-      props.onNext(data);
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    }
+  const handleNext = () => {
+    const data = { afterparty: stayingAfterparty };
+    props.onNext(data);
   };
 
   return (
@@ -47,7 +40,7 @@ function CelebrationForm(props) {
             {/* Radio Buttons Group Options*/}
             <RadioGroup
               aria-labelledby="celebration-radio-buttons-group-label"
-              value={afterparty} // Use the afterparty state
+              value={stayingAfterparty} // Use the afterparty state
               name="celebration-radio-buttons-group"
               onChange={handleChange} // Use the handleChange function
             >

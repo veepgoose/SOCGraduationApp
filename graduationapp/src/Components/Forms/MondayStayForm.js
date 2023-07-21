@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios library
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
@@ -12,20 +11,13 @@ import FormLabel from "@mui/material/FormLabel";
 function MondayStayForm(props) {
   const [staying, setStaying] = useState(true);
 
-  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
-
   const handleChange = (e) => {
     setStaying(e.target.value === "true"); // Convert string value to boolean
   };
 
-  const handleNext = async () => {
+  const handleNext = () => {
     const data = { monday: staying };
-    try {
-      await axios.post(`${apiUrl}/save/monday-stay`, data); // Make the API call to submit data
-      props.onNext(data);
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    }
+    props.onNext(data);
   };
 
   return (

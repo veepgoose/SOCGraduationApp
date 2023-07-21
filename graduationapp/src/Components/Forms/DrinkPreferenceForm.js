@@ -11,29 +11,23 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
 function DrinkPreferenceForm(props) {
+
   const [checked, setChecked] = useState(false);
   const [beerChecked, setBeerChecked] = useState(false);
   const [wineChecked, setWineChecked] = useState(false);
   const [spiritsChecked, setSpiritsChecked] = useState(false);
   const [beastChecked, setBeastChecked] = useState(false);
 
-  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
-
-  const handleNext = async () => {
-    const data = {
-      beer: beerChecked,
-      wine: wineChecked,
-      spirits: spiritsChecked,
-      beast: beastChecked,
-      none: checked,
-    };
-    try {
-      await axios.post(`${apiUrl}/save/drink-preference`, data); // Make the API call to submit data
-      props.onNext(data);
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    }
+const handleNext = () => {
+  const data = {
+    beer: beerChecked,
+    wine: wineChecked,
+    spirits: spiritsChecked,
+    beast_mode: beastChecked, // Use "beast_mode" instead of "beastChecked"
+    none: checked,
   };
+  props.onNext(data);
+};
 
   const handleCheckboxChange = (event) => {
     const { checked } = event.target;

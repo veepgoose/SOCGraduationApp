@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import MondayStayForm from "./Components/Forms/MondayStayForm";
 import "./App.css";
 import soclogo from "./socdows logo.png";
@@ -21,42 +20,90 @@ const formSequence = [
   ThankYouMessage,
 ];
 
-// const apiUrl = "https://soc-grad-app-22cd9e1b6bed.herokuapp.com"; // Replace with your deployed backend URL
-const apiUrl = "http://localhost:5000/api"; // Replace with the correct URL for your backend
-
 function App() {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [response, setResponse] = useState([]);
+  const [drinkPreferences, setDrinkPreferences] = useState({});
+
+  useEffect(() => {
+    fecthResponses();
+  }, []);
+
+  useEffect(() => {
+    //colsone log resposn eeverytime somnethign is updated
+    console.log(response);
+  }, [response]);
+
+  // Making a fecth to the api and console logging to check if the database is connected
+
+  async function fecthResponses() {
+    let response = await fetch(
+      "https://soc-grad-app-22cd9e1b6bed.herokuapp.com/api/get",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    let data = await response.json();
+    console.log(data.payload);
+  }
 
   const handleNextForm = async (data) => {
-    try {
-      if (currentFormIndex === 0) {
-        await axios.post(`${apiUrl}/save/name-email`, {
-          name: data.name,
-          email: data.email,
-        });
-        console.log(data, "backend");
-      } else if (currentFormIndex === 5) {
-        await axios.post(`${apiUrl}/save/drink-preference`, {
-          none: data.none,
-          beer: data.beer,
-          wine: data.wine,
-          spirits: data.spirits,
-          beast: data.beast,
-        });
-      } else {
-        // For other forms, you need to adjust the endpoint accordingly
-        // For example, for MondayStayForm, the endpoint should be "/save/monday-stay"
-        // For HackathonForm, the endpoint should be "/save/hackathon"
-        // And so on for other forms.
-        console.log("Backend endpoint not defined for this form.");
-      }
+    console.log("Received data from form:", data);
+    console.log("Current form index:", currentFormIndex);
+    // when the formSequence is complete, send the data to the backend
+    console.log("currentFormIndex:", currentFormIndex);
+    if (currentFormIndex === 5) {
+      // if (response.length >= 6 && Object.keys(drinkPreferences).length === 4) {
+      let bodyContent = JSON.stringify({
+        name: response[0].name,
+        email: response[0].email,
+        staying_monday: response[1].monday,
+        hackathon: response[2].hackathon,
+        staying_tuesday: response[3].tuesday,
+        going_out_interest: response[4].afterparty,
+        beer: drinkPreferences.beer,
+        wine: drinkPreferences.wine,
+        spirits: drinkPreferences.spirits,
+        beast_mode: drinkPreferences.beast,
+      });
 
-      setCurrentFormIndex(currentFormIndex + 1);
-      setResponse([...response, data]);
-    } catch (error) {
-      console.error("Error submitting response:", error);
+      console.log("your body content: " + bodyContent);
+
+      let headersList = {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+      };
+
+      let apiResponse = await fetch(
+        "https://soc-grad-app-22cd9e1b6bed.herokuapp.com/api/save",
+        {
+          method: "POST",
+          body: bodyContent,
+          headers: headersList,
+        }
+      );
+
+      console.log(apiResponse.status); // Check the status code
+      console.log(apiResponse.headers); // Check the response headers
+      let postData = await apiResponse.json(); // Parse the response data
+      console.log(postData); // Check the parsed response data
+      // } else {
+      //   console.error("Incomplete response data. Form data might be missing.");
+      // }
     }
+
+    // If the current form is the DrinkPreferenceForm, update the drink preferences state.
+    if (currentFormIndex === 5) {
+      setDrinkPreferences(data);
+    } else {
+      setResponse((prevResponse) => [...prevResponse, data]);
+    }
+
+    setCurrentFormIndex(currentFormIndex + 1);
   };
 
   const CurrentForm = formSequence[currentFormIndex];
@@ -70,10 +117,9 @@ function App() {
       <div className="background-image">
         <header className="App-header">
           <img src={soclogo} className="App-logo" alt="logo" />
-          {/* Use className instead of header */}
-          <div className="App-header">
+          <header className="App-header">
             <CurrentForm onNext={handleNextForm} />
-          </div>
+          </header>
         </header>
       </div>
     </div>
@@ -81,4 +127,3 @@ function App() {
 }
 
 export default App;
-

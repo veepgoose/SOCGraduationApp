@@ -12,20 +12,13 @@ import FormLabel from "@mui/material/FormLabel";
 function HackathonForm(props) {
   const [stayingHackathon, setStayingHackathon] = useState(true);
 
-  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
-
   const handleChange = (e) => {
     setStayingHackathon(e.target.value === "true"); // Convert string value to boolean
   };
 
-  const handleNext = async () => {
+  const handleNext = () => {
     const data = { hackathon: stayingHackathon };
-    try {
-      await axios.post(`${apiUrl}/save/hackathon`, data); // Make the API call to submit data
-      props.onNext(data);
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    }
+    props.onNext(data);
   };
 
   return (
