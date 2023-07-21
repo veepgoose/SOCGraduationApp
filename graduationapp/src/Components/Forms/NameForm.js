@@ -15,14 +15,9 @@ function NameForm(props) {
   return (
     <div className="Body">
       <Cards>
-        <h2 className="Form-Title">WELCOME TO THE SOC GRADUATION DRINKS APP!</h2>
+        <h2 className="Form-Title">GIT TIPSY++</h2>
         <p className="Form-Text">
-          We’re all excited for our graduation day at Microsoft next week, but
-          the all-important question: What are we all doing after?! The day is
-          scheduled to finish at 5 pm, and we’d like to keep the party going!
-          So, if you’re looking to carry on the celebrations, use this App to
-          help us plan the festivities. There is also an option to join an
-          in-person Hackathon on Monday for those who will be in the area.
+        Welcome to Git Tipsy++ – where coding meets celebration! 🎉 Get ready for the API Hour of your life as we gather to raise our glasses and toast to our coding journey! While True: Drink() is the mantra of this post-graduation bash at Microsoft. Help us make it unforgettable by filling out a few questions, and let's code the perfect celebration together! 🍻🎓
         </p>
 
         <form>
