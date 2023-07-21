@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"; // Import Axios library
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -10,15 +10,22 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 function CelebrationForm(props) {
-  const [stayingAfterparty, setSayingAfterparty] = useState(true);
+  const [afterparty, setAfterparty] = useState(true);
+
+  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
 
   const handleChange = (e) => {
-    setSayingAfterpartyg(e.target.value === "true"); // Convert string value to boolean
+    setAfterparty(e.target.value === "true"); // Convert string value to boolean
   };
 
-  const handleNext = () => {
-    const data = { afterparty: stayingAfterparty };
-    props.onNext(data);
+  const handleNext = async () => {
+    const data = { afterparty };
+    try {
+      await axios.post(`${apiUrl}/save/afterparty`, data); // Make the API call to submit data
+      props.onNext(data);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   };
 
   return (
@@ -40,7 +47,7 @@ function CelebrationForm(props) {
             {/* Radio Buttons Group Options*/}
             <RadioGroup
               aria-labelledby="celebration-radio-buttons-group-label"
-              defaultValue="true"
+              value={afterparty} // Use the afterparty state
               name="celebration-radio-buttons-group"
               onChange={handleChange} // Use the handleChange function
             >
@@ -57,3 +64,4 @@ function CelebrationForm(props) {
 }
 
 export default CelebrationForm;
+

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"; // Import Axios library
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -12,13 +12,20 @@ import FormLabel from "@mui/material/FormLabel";
 function HackathonForm(props) {
   const [stayingHackathon, setStayingHackathon] = useState(true);
 
+  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
+
   const handleChange = (e) => {
     setStayingHackathon(e.target.value === "true"); // Convert string value to boolean
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     const data = { hackathon: stayingHackathon };
-    props.onNext(data);
+    try {
+      await axios.post(`${apiUrl}/save/hackathon`, data); // Make the API call to submit data
+      props.onNext(data);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   };
 
   return (
@@ -61,3 +68,4 @@ function HackathonForm(props) {
 }
 
 export default HackathonForm;
+

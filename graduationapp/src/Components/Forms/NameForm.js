@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios"; // Import Axios library
 import "./Forms.css";
 import Cards from "../Cards/Cards";
 import NextButton from "../Buttons/NextButton";
-import { useState } from "react";
 
 function NameForm(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleNext = () => {
+  const apiUrl = "https://your-backend-url"; // Replace with your deployed backend URL
+
+  const handleNext = async () => {
     const data = { name, email };
-    props.onNext(data);
+    try {
+      await axios.post(`${apiUrl}/save/name-email`, data); // Make the API call to submit data
+      props.onNext(data);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   };
 
   return (
     <div className="Body">
       <Cards>
-        <h2 className="Form-Title">
-          WELCOME TO THE SOC GRADUATION DRINKS APP!
-        </h2>
+        <h2 className="Form-Title">WELCOME TO THE SOC GRADUATION DRINKS APP!</h2>
         <p className="Form-Text">
           We’re all excited for our graduation day at Microsoft next week, but
           the all-important question: What are we all doing after?! The day is
