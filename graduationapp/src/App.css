@@ -4,38 +4,42 @@
 
 .background-image {
   background-image: url('./windows.jpg');
-  height: 1000px;
+  height: 1000px; 
 }
-
-
-/* .App-header {
-  
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
- 
-} */
 
 .App-logo {
   height: 170px;
   padding: 20px;
-  animation: socLogo infinite 20s linear;
-transform: rotate(90deg);
+  animation: spin infinite 20s linear;
+  transform: rotate(90deg);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); } 
 }
 
 
+/* iPhone X */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px)  
+  and (-webkit-device-pixel-ratio: 3) {
+    
+  body {
+    background: red;
+  }
 
-@keyframes socLogo {
-0% {
-  /* Initial state */
-  transform: rotate(360deg);
-}
-100% {
-  /* Final state */
-  transform: rotate(0deg);
-}
 }
 
+/* iPhone 12 Pro Max */
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-device-pixel-ratio: 3) {
 
+  body {
+    background: blue; 
+  }
+
+}
