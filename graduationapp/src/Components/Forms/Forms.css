@@ -1,4 +1,9 @@
-
+/* iPhone 12
+@media (max-width: 390px) { 
+  * {
+    width: 140px;
+  }
+} */
 .Name-Form,
 .Email-Form {
     display: flex;
@@ -7,9 +12,6 @@
     align-items: center;
     padding: 10px;
     font-size: 20px;
-    
-  
-    
 }
 
 
@@ -24,7 +26,6 @@
     color: #F7F7F5;
     font-size: 17px;
     text-align: center;
-
 }
 
 .Form-Title {
@@ -39,7 +40,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
     color: #F7F7F5;
-    
 }
 
 
@@ -51,8 +51,7 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #F7F7F5;
-    
+    color: #F7F7F5;  
 }
 
 
@@ -83,6 +82,7 @@
   margin-bottom: 20px;
 }
 
+
 .GooseSquad {
 
   justify-content: center;
@@ -93,6 +93,7 @@
   width: 350px;
 
 }
+
 
 
 
