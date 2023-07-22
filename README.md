@@ -7,7 +7,7 @@ Welcome to Git Tipsy++ – where coding meets celebration! 🎉 Get ready for th
 
 ## 🎉 About the App
 
-Git Tipsy++ is not just your ordinary event planning app; it's a full-stack React application that we lovingly crafted from scratch, fueled by the enthusiasm and passion for coding! Together, [Your Name], [Sam Baldwin], and [Tom Webb] embarked on this exciting journey to bring our fellow bootcampers together for a memorable hackathon and celebration in Reading. 🚀
+Git Tipsy++ is not just your ordinary event planning app; it's a full-stack React application that we lovingly crafted from scratch, fueled by the enthusiasm and passion for coding! Together, Victoria Platt, Sam Baldwin, and Tom Webb embarked on this exciting journey to bring our fellow bootcampers together for a memorable hackathon and celebration in Reading. 🚀
 
 ![Figjam](Figjam.png)
 ![Wireframes](wireframes.png)
