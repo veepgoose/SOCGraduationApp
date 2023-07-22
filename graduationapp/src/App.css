@@ -27,7 +27,7 @@
   and (-webkit-device-pixel-ratio: 3) {
     
   body {
-    background: red;
+    /* background: red; */
   }
 
 }
@@ -39,7 +39,7 @@
   and (-webkit-device-pixel-ratio: 3) {
 
   body {
-    background: blue; 
+    /* background: blue;  */
   }
 
 }
