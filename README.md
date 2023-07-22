@@ -28,9 +28,9 @@ https://soc-graduation-app.vercel.app/ 😎
 
 A big shoutout to the creators of Git Tipsy++:
 
-- Victoria Platt [Linked In](https://www.linkedin.com/in/vplatt/)[GitHub Profile](https://github.com/veepgoose). [CV](https://flowcv.com/resume/tidrmg7102)
+- Victoria Platt [Linked In](https://www.linkedin.com/in/vplatt/)  [GitHub Profile](https://github.com/veepgoose). [CV](https://flowcv.com/resume/tidrmg7102)
 - Sam Baldwin [Linked In](https://www.linkedin.com/in/sambaldwin1/) [GitHub Profile](https://github.com/SBaldwin-Git). [CV](https://flowcv.com/resume/iflo58kcar)
-- Tom Webb [Linked In](https://www.linkedin.com/in/tomwebb10/)[GitHub Profile](https://github.com/tomwebb2022). 
+- Tom Webb [Linked In](https://www.linkedin.com/in/tomwebb10/)  [GitHub Profile](https://github.com/tomwebb2022). 
 
 We also want to thank Hamza and the entire bootcamp community for their unwavering support and guidance throughout this project. You rock! 🤘
 
