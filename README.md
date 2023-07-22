@@ -30,4 +30,5 @@ A big shoutout to the creators of Git Tipsy++:
 
 We also want to thank Hamza and the entire bootcamp community for their unwavering support and guidance throughout this project. You rock! 🤘
 
-![GooseSquad](Goose Squad Tipsy++ App.png)
+![GooseSquad](Goose%20Squad%20Tipsy%2B%2B%20App.png)
+
