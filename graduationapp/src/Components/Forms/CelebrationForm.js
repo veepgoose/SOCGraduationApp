@@ -10,10 +10,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 function CelebrationForm(props) {
-  const [stayingAfterparty, setSayingAfterparty] = useState(true);
+  const [stayingAfterparty, setStayingAfterparty] = useState(true);
 
   const handleChange = (e) => {
-    setSayingAfterpartyg(e.target.value === "true"); // Convert string value to boolean
+    setStayingAfterparty(e.target.value === "true"); // Convert string value to boolean
   };
 
   const handleNext = () => {
